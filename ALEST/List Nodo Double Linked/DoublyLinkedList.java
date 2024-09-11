@@ -20,6 +20,11 @@ public class DoublyLinkedList implements ListTAD {
             this.previous = previous;
             this.next = next;
         }
+        public Node() {
+            this.item = 0;
+            this.previous = null;
+            this.next = null;
+        }
     }
     public DoublyLinkedList()
     {
@@ -29,16 +34,29 @@ public class DoublyLinkedList implements ListTAD {
     @Override
     public void add(int element) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
-        Node newNode=new Node(element);
-
+        Node newNode=new Node(element,trailer.previous,trailer);
+        newNode.previous.next=newNode;
+        trailer.previous=newNode;
+        count++;
     }
 
     @Override
     public void add(int index, int element) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
-    }
+        if(count>=index){
+            Node newNode=new Node(element);
+            Node tempNode=header;
+            for(int i=0;i<=index;i++){
+                tempNode=tempNode.next;
+                    if(i==index){
+                    newNode.next=tempNode;
+                    newNode.previous=tempNode.previous;
+                    newNode.previous.next=newNode;
+                    tempNode.previous=newNode;
+                    count++;
+                    }
+                }
+        }
 
     @Override
     public void addFirst(int e) {
