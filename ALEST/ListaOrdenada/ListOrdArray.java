@@ -137,7 +137,6 @@
      * @return true caso tenha sido removido, false caso não tenha removido
      */
     public boolean remove(Integer element){
-        int temp, salvo;
         for(int i=0;i<count;i++){
             if(element==data[i]){
                 for(int j=i;j>count-1;j++){
@@ -160,20 +159,79 @@
      * @param element o elemento a ser armazenado na lista
      * @return o elemento armazenado anteriormente na posicao da lista
      */
-    public int set(int index, Integer element) {
+     public int set(int index, Integer element) {
+       if(index>=count){
+       return -1;}
+       else{
+           int nroOriginal=data[index];
+           data[index]=element;
+           return nroOriginal;}
+       }
 
-        return -1;
-    }
+   /**
+    * Procura pelo elemento passado por parametro na lista e retorna true se a 
+    * lista contem este elemento.
+    * @param element o elemento a ser procurado
+    * @return true se a lista contem o elemento passado por parametro
+    */
+   public boolean contains(Integer element) {
+       for(int i=0;i<count;i++){
+           if(data[i]==element){
+               return true;
+           }
+       }
+       return false;
+   }
 
-    /**
-     * Procura pelo elemento passado por parametro na lista e retorna true se a 
-     * lista contem este elemento.
-     * @param element o elemento a ser procurado
-     * @return true se a lista contem o elemento passado por parametro
-     */
-    public boolean contains(Integer element) {
 
-        return false;
+   /**
+    * Este método recebe como parâmetro um valor inteiro e modifica o tamanho
+   máximo da lista para o valor recebido. Analise a complexidade do método e
+   acrescente a notação O como comentário no código fonte junto da assinatura do
+   método. Tem complexidade Linear
+    */
+   public void setCapacity(int tamNovo){
+       if(tamNovo>=count){
+           Integer[] dataNovo=new Integer[tamNovo];
+           for(int i=0;i<count;i++){
+               dataNovo[i]=data[i];
+           }
+           data=dataNovo;
+           return;
+       }
+       else if(tamNovo<count){
+           count=tamNovo;
+           Integer[] dataNovo=new Integer[tamNovo];
+           for(int i=0;i<tamNovo;i++){
+               dataNovo[i]=data[i];
+           }
+           data=dataNovo;
+           return;
+       }
+   }
+
+   /**Acrescente na classe ListArray o seguinte método: public void reverse(). Este
+   método deve inverter o conteúdo da lista. Teste a sua implementação para este
+   método na classe App. Analise a complexidade do método e acrescente a
+   notação O como comentário no código fonte junto da assinatura do método. Complexidade-Linear*/
+   public void reverse(){
+       Integer reserva;
+       int head=0;
+       if(count%2==1){
+           for(int i=count-1;i>count/2;i--){
+               reserva=data[head];
+               data[head]=data[i];
+               data[i]=reserva;
+               head++;
+           }
+        }
+        else if(count%2==0){
+            for(int i=count-1;i>=count/2;i--){
+                reserva=data[head];
+                data[head]=data[i];
+                data[i]=reserva;
+                head++;
+            }
+        }
     }
 }
-
