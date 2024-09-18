@@ -355,13 +355,13 @@
                         listaNova.add(lista1.data[i]);
                         contador=lista1.data[i];
                     }
+                }
+                else if(lista1.data[i]>lista2.data[j]){ 
+                    if(contador>lista2.data[j]){
+                    listaNova.add(lista2.data[j]);
+                    contador=lista2.data[j];
                     }
-                    if(lista1.data[i]>lista2.data[j]){ 
-                        if(contador>lista2.data[j]){
-                        listaNova.add(lista2.data[j]);
-                        contador=lista2.data[j];
-                        }
-                    }
+                }
             }
         }
         listaNova.setCapacity(listaNova.count);
