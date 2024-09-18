@@ -259,7 +259,20 @@
     acrescente a notação O como comentário no código fonte junto da assinatura do
     método. Observação: a lista só ficará garantidamente ordenada se os elementos
     forem inseridos através da chamada deste método. */
-    
+    public void addIncreasingOrder(int element){
+        add(element);
+        Integer comparador;
+        for(int i=0;i<count;i++){
+            comparador=data[i];
+            for(int j=0;j<count;j++){
+                if(data[i]<data[j]){
+                    data[i]=data[j];
+                    data[j]=comparador;
+                    comparador=data[i];
+                }
+            }
+        }
+    }
     
     
     
