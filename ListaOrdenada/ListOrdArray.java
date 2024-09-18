@@ -315,7 +315,23 @@
     parâmetro. Analise a complexidade do método e acrescente a notação O como
     comentário no código fonte junto da assinatura do método. */
     
-    
+    public ListOrdArray fusion(ListOrdArray array1, ListOrdArray array2){
+        array1.unique();
+        array2.unique();
+        ListOrdArray arrayFusao=new ListOrdArray(array1.data.length+array2.data.length);
+        int cont=0;
+        Integer atual;
+        for(int i=0;i<array1.count;i++){
+                for(int j=0;j<array2.count;j++)
+                    if(array1.data[i]==array2.data[j]){
+                        arrayFusao.add(array1.data[i]);
+                        cont++;
+                    }
+            }
+        arrayFusao.setCapacity(cont);
+        return arrayFusao;        
+        }
+    }
     
     
     
@@ -327,4 +343,4 @@
     retorna uma terceira lista com todos os elementos das duas listas recebidas em
     ordem crescente. Por exemplo, passando por parâmetro L1 = {3, 5, 8, 13, 19} e
     L2 = {1, 4, 6, 9, 15}, o resultado deve ser L3 = {1, 3, 4, 5, 6, 8, 9, 13, 15, 19} */
-}
+

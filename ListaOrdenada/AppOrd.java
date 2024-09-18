@@ -7,6 +7,21 @@ public class AppOrd {
          * testes não pegam!
          */
         ListOrdArray lista = new ListOrdArray();
+        ListOrdArray lista2 = new ListOrdArray();
+        ListOrdArray lista3 = new ListOrdArray();
+
+        lista2.add(2);
+        lista2.add(4);
+        lista2.add(6);
+        lista2.add(8);
+
+        lista3.add(2);
+        lista3.add(4);
+        lista3.add(6);
+        lista3.add(8);
+        System.out.print(lista.fusion(lista2, lista3));
+    /* 
+
         lista.add(2);
         lista.add(4);
         lista.add(6);
@@ -43,5 +58,6 @@ public class AppOrd {
         System.out.print(lista);
         System.out.println("Limpando a lista... "  );lista.clear();
         System.out.println("Lista agora deve estar vazia. Tamanho da lista: " + lista.size());
+        */
     }
 }
