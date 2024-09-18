@@ -10,16 +10,16 @@ public class AppOrd {
         ListOrdArray lista2 = new ListOrdArray();
         ListOrdArray lista3 = new ListOrdArray();
 
-        lista2.add(2);
-        lista2.add(4);
-        lista2.add(6);
-        lista2.add(8);
+        lista2.addIncreasingOrder(2);
+        lista2.addIncreasingOrder(4);
+        lista2.addIncreasingOrder(6);
+        lista2.addIncreasingOrder(8);
 
-        lista3.add(2);
-        lista3.add(4);
-        lista3.add(6);
-        lista3.add(8);
-        System.out.print(lista.fusion(lista2, lista3));
+        lista3.addIncreasingOrder(2);
+        lista3.addIncreasingOrder(1);
+        lista3.addIncreasingOrder(3);
+        lista3.addIncreasingOrder(5);
+        System.out.print(lista.fusaoTodos(lista2, lista3));
     /* 
 
         lista.add(2);

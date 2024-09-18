@@ -320,7 +320,6 @@
         array2.unique();
         ListOrdArray arrayFusao=new ListOrdArray(array1.data.length+array2.data.length);
         int cont=0;
-        Integer atual;
         for(int i=0;i<array1.count;i++){
                 for(int j=0;j<array2.count;j++)
                     if(array1.data[i]==array2.data[j]){
@@ -331,7 +330,7 @@
         arrayFusao.setCapacity(cont);
         return arrayFusao;        
         }
-    }
+    
     
     
     
@@ -344,3 +343,29 @@
     ordem crescente. Por exemplo, passando por parâmetro L1 = {3, 5, 8, 13, 19} e
     L2 = {1, 4, 6, 9, 15}, o resultado deve ser L3 = {1, 3, 4, 5, 6, 8, 9, 13, 15, 19} */
 
+    public ListOrdArray fusaoTodos(ListOrdArray lista1,ListOrdArray lista2){
+        lista1.unique();
+        lista2.unique();
+        ListOrdArray listaNova=new ListOrdArray(lista1.data.length+lista2.data.length);
+        int contador=-2147483648;
+        for(int i=0;i<lista1.count;i++){
+            for(int j=0;j<lista2.count;j++){
+                if(lista1.data[i]<lista2.data[j]){    
+                    if(contador>lista1.data[i]){
+                        listaNova.add(lista1.data[i]);
+                        contador=lista1.data[i];
+                    }
+                    }
+                    if(lista1.data[i]>lista2.data[j]){ 
+                        if(contador>lista2.data[j]){
+                        listaNova.add(lista2.data[j]);
+                        contador=lista2.data[j];
+                        }
+                    }
+            }
+        }
+        listaNova.setCapacity(listaNova.count);
+        return listaNova;
+    }
+
+}
