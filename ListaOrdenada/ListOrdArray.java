@@ -240,7 +240,7 @@
     element), que conta o número de ocorrências do elemento passado como
     parâmetro na lista, retornando este valor. Analise a complexidade do método e
     acrescente a notação O como comentário no código fonte junto da assinatura do
-    método.*/
+    método.*/ //Linear
     public int countOcurrences(int element){
         int contador=0;
         for(int i=0;i<count;i++){
@@ -291,16 +291,15 @@
     método e acrescente a notação O como comentário no código fonte junto da
     assinatura do método. */
     public void unique(){
-        int unico;
         for(int i=0;i<count;i++){
-            unico=data[i];
-            for(int j=0;j)
+            for(int j=0;j<count;j++){
+                if(data[i]==data[j]&j!=i){
+                    remove(data[i]);
+                }
             }
         }
     }
-    
-    
-    
+
     
     
     

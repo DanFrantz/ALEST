@@ -38,10 +38,9 @@ public class AppOrd {
         lista.add(3);
         lista.add(3);
         lista.add(3);
-        System.out.print(lista.countOcurrences(3));
-        System.out.println(lista);
-        lista.addIncreasingOrder(9);
-        System.out.println(lista);
+        System.out.print(lista);
+        lista.unique();
+        System.out.print(lista);
         System.out.println("Limpando a lista... "  );lista.clear();
         System.out.println("Lista agora deve estar vazia. Tamanho da lista: " + lista.size());
     }
