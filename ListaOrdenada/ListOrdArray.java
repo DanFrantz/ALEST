@@ -290,7 +290,14 @@
     implementação para este método na classe App. Analise a complexidade do
     método e acrescente a notação O como comentário no código fonte junto da
     assinatura do método. */
-    
+    public void unique(){
+        int unico;
+        for(int i=0;i<count;i++){
+            unico=data[i];
+            for(int j=0;j)
+            }
+        }
+    }
     
     
     
