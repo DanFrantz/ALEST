@@ -139,7 +139,7 @@
     public boolean remove(Integer element){
         for(int i=0;i<count;i++){
             if(element==data[i]){
-                for(int j=i;j>count-1;j++){
+                for(int j=i;j>count;j++){
                     data[j]=data[j+1];
                 }
                 count--;
@@ -319,15 +319,11 @@
         array1.unique();
         array2.unique();
         ListOrdArray arrayFusao=new ListOrdArray(array1.data.length+array2.data.length);
-        int cont=0;
-        for(int i=0;i<array1.count;i++){
-                for(int j=0;j<array2.count;j++)
-                    if(array1.data[i]==array2.data[j]){
-                        arrayFusao.add(array1.data[i]);
-                        cont++;
-                    }
+        for (int i = 0; i < array1.count; i++) {
+            if (array2.contains(array1.data[i])) {
+                arrayFusao.add(array1.data[i]);
             }
-        arrayFusao.setCapacity(cont);
+        }
         return arrayFusao;        
         }
     
@@ -346,26 +342,38 @@
     public ListOrdArray fusaoTodos(ListOrdArray lista1,ListOrdArray lista2){
         lista1.unique();
         lista2.unique();
-        ListOrdArray listaNova=new ListOrdArray(lista1.data.length+lista2.data.length);
-        int contador=-2147483648;
-        for(int i=0;i<lista1.count;i++){
-            for(int j=0;j<lista2.count;j++){
-                if(lista1.data[i]<lista2.data[j]){    
-                    if(contador>lista1.data[i]){
-                        listaNova.add(lista1.data[i]);
-                        contador=lista1.data[i];
-                    }
-                }
-                else if(lista1.data[i]>lista2.data[j]){ 
-                    if(contador>lista2.data[j]){
-                    listaNova.add(lista2.data[j]);
-                    contador=lista2.data[j];
-                    }
-                }
+        ListOrdArray listaNova=new ListOrdArray((lista1.data.length+lista2.data.length));
+        int i = 0; // Índice para lista1
+        int j = 0; // Índice para lista2    
+       
+        while (i < lista1.count && j < lista2.count) {
+            if (lista1.data[i] < lista2.data[j]) {
+                listaNova.add(lista1.data[i]);
+                i++;
+            } else if (lista1.data[i] > lista2.data[j]) {
+                listaNova.add(lista2.data[j]);
+                j++;
+            } else { // Quando os elementos são iguais
+                listaNova.add(lista1.data[i]);
+                i++;
+                j++;
             }
         }
-        listaNova.setCapacity(listaNova.count);
+        
+        // Adiciona os restantes de lista1, se houver
+        while (i < lista1.count) {
+            listaNova.add(lista1.data[i]);
+            i++;
+        }
+        
+        // Adiciona os restantes de lista2, se houver
+        while (j < lista2.count) {
+            listaNova.add(lista2.data[j]);
+            j++;
+        }
+        
         return listaNova;
     }
+    
 
 }
