@@ -21,5 +21,6 @@ public int somaArraylaco(int[] arrayInteiros){
 
 //Versão com recursividade soma de array
 public int somaArrayRecursao(int [] arrayInteiros){
+    static int soma=0,pos=0;
     
 }
