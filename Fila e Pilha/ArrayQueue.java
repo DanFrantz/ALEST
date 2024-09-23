@@ -3,7 +3,6 @@ public class ArrayQueue {
         private static int TAM_DEFAULT=8; //Tamanho padrão de uma fila
         private Integer[] data;
         private int count;
-        private int head;
         /**
         * Construtor da lista.
         */
@@ -30,7 +29,7 @@ public class ArrayQueue {
             if(count==data.length){
                 Integer[] replaceData= new Integer[data.length+1];
                 for(int i=0;i<replaceData.length;i++){
-                        if(i<data.length){
+                        if(i>data.length){
                                 replaceData[i]=data[i];
                         }
                         else{
@@ -50,7 +49,7 @@ public class ArrayQueue {
          * @return O elemento que estava no início da fila.
          */
         public int dequeue(){
-                
+                data[0]=
         }
     
         /**
