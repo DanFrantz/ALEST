@@ -1,8 +1,9 @@
 
-public class ArrayQueue {
+public class ArrayQueue implements QueueTAD {
         private static int TAM_DEFAULT=8; //Tamanho padrão de uma fila
         private Integer[] data;
         private int count;
+        private int tirados=0;
         /**
         * Construtor da lista.
         */
@@ -27,16 +28,19 @@ public class ArrayQueue {
          */
         public void enqueue(int element){
             if(count==data.length){
+                int posNovo=0;
                 Integer[] replaceData= new Integer[data.length+1];
-                for(int i=0;i<replaceData.length;i++){
-                        if(i>data.length){
-                                replaceData[i]=data[i];
+                for(int i=0+tirados;i<replaceData.length;i++){
+                        if(i<data.length){
+                                replaceData[posNovo]=data[i];
+                                posNovo++;
                         }
                         else{
-                                replaceData[i]=element;
+                                replaceData[posNovo]=element;
                                 count++;
                         }
                 }data=replaceData;
+                tirados=0;
             }
             else{
                 data[count]=element;
@@ -49,28 +53,43 @@ public class ArrayQueue {
          * @return O elemento que estava no início da fila.
          */
         public int dequeue(){
-                data[0]=
+                if(tirados<data.length){
+                tirados++;
+                count--;
+                return data[tirados-1];}   
+                else{
+                        return 0;
+                }     
         }
     
         /**
          * @return O tamanho da fila.
          */
         public int size(){
-
+                return count-tirados;
         }
     
         /**
          * @return true se a fila estiver vazia, false caso contrário.
          */
         public boolean isEmpty(){
-
+                if(count==0){
+                        return true;
+                }
+                else{
+                        return false;
+                }
         }
     
         /**
          * Remove todos elementos da fila.
          */
         public void clear(){
+                for(int i=0;i<count;i++){
+                        data[i]=0;
 
+                }count=0;
+                tirados=0;
         }
     
         /**
@@ -78,10 +97,13 @@ public class ArrayQueue {
          * @return O primeiro elemento da fila.
          */
         public int head(){
-
+                return data[0+tirados];
         }
 
-
+        public Integer indexOf(int index){
+                return data[index];
+        }
+     
 
 
 
