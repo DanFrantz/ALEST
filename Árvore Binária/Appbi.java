@@ -4,7 +4,7 @@
  * @author Luan Fonseca Garcia
  */
 
-public class App {
+public class Appbi {
 
     public static void main(String[] args) {
         BinaryTreeOfInteger b = new BinaryTreeOfInteger();
@@ -23,9 +23,11 @@ public class App {
 
         System.out.println("Caminhamento em largura:");
         System.out.println(b.positionsWidth());
-        
+
+        System.out.println("Caminhamento pre:");
+        System.out.println(b.positionsPre());
         b.removeBranch(5);
-        
+        System.out.print(b.size());
         System.out.println("---------------------");
         b.GeraDOT();
     }
