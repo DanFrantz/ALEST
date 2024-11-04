@@ -4,6 +4,7 @@ public class ArrayQueue implements QueueTAD {
         private Integer[] data;
         private int count;
         private int tirados=0;
+        private int colocados=0;
         /**
         * Construtor da lista.
         */
@@ -28,21 +29,34 @@ public class ArrayQueue implements QueueTAD {
          */
         public void enqueue(int element){
             if(count==data.length){
+                if(tirados>colocados){//Verifica se tem espaços vazios no array depois de dar dequeue do ínicio
+                        data[colocados]=element;
+                        colocados++;
+                        count++;
+                }
+                else if(tirados==colocados ){
                 int posNovo=0;
                 Integer[] replaceData= new Integer[data.length+1];
                 for(int i=0+tirados;i<replaceData.length;i++){
                         if(i<data.length){
                                 replaceData[posNovo]=data[i];
                                 posNovo++;
+                        if(i==data.length){
+                                for(int j=0;j<colocados;j++){
+                                        replaceData[posNovo]=data[j];
+                                        posNovo++;
+                                }
                         }
-                        else{
+                        }else{
                                 replaceData[posNovo]=element;
                                 count++;
-                        }
+                         }
                 }data=replaceData;
                 tirados=0;
+                colocados=0;
             }
-            else{
+            
+        }else{
                 data[count]=element;
                 count++;
             }

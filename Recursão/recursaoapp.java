@@ -1,6 +1,6 @@
 public class recursaoapp {
     public static void main(String args[]){
-        int[] arrayInteiros={2,7,1,1,9},arrayInteiros2=arrayInteiros;
+        int[] arrayInteiros={2,7,1,1,9};
         RecursivoIterativa rec= new RecursivoIterativa();
         int inverteArray[];
     
